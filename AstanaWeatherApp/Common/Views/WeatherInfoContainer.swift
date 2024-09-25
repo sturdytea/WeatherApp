@@ -12,30 +12,35 @@
 import SwiftUI
 
 struct WeatherInfoContainer: View {
-    var weekDay: String
-    var main: String
-    var iconName: String
-    var iconColor: Color = .white
-    var temp: Double
+    
+    let weather: WeatherProtocol
+    
+    init(weather: CurrentWeather) {
+        self.weather = weather
+    }
+    
+    init(weather: ForecastWeather) {
+        self.weather = weather
+    }
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(weekDay)
+                Text(weather.day)
                     .font(.title)
                     .fontWeight(.medium)
                     .padding(EdgeInsets(top: 26, leading: 0, bottom: 16, trailing: 0))
-                Text(main)
+                Text(weather.main)
                     .padding(.top, 8)
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Image(systemName: iconName)
+                Image(weather.icon)
                     .resizable()
                     .frame(width: 60, height: 60)
                     .padding(.top, 16)
-                    .foregroundColor(iconColor)
-                Text("\(Int(temp))℃")
+                    .foregroundColor(.white)
+                Text("\(Int(weather.temp))℃")
                     .padding(.top, 8)
             }
         }
@@ -47,5 +52,11 @@ struct WeatherInfoContainer: View {
 }
 
 #Preview {
-    WeatherInfoContainer(weekDay: "Today", main: "Sunny", iconName: "sun.max", temp: 20)
+    WeatherInfoContainer(weather: CurrentWeather(CurrentResponseBody(
+            name: "Test City",
+            dt: 0,
+            weather: [WeatherResponse(id: 1, main: "Clear", icon: "cloud.sun")],
+            main: MainResponse(temp: 300.0, pressure: 1012, humidity: 50),
+            wind: WindResponse(speed: 5.0)
+        )))
 }
