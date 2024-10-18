@@ -43,7 +43,6 @@ class WeatherViewModel: ObservableObject {
     
     func fetchForecastWeather() {
         weatherManager.forecastWeatherPublisher(name: city)
-            .map(ForecastWeather.init)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -53,7 +52,12 @@ class WeatherViewModel: ObservableObject {
                     print("Error: fetchForecastWeather() \(error)")
                 }
             }, receiveValue: { value in
-                self.forecastWeatherRecords.append(value)
+                self.forecastWeatherRecords.removeAll()
+                let cityName = value.city.name
+                let forecastWeatherList = value.list.map { item in
+                    ForecastWeather(item, cityName: cityName)
+                }
+                self.forecastWeatherRecords.append(contentsOf: forecastWeatherList)
             })
             .store(in: &subscriptions)
     }

@@ -14,11 +14,11 @@ import Combine
 
 class ForecastWeather: ObservableObject, WeatherProtocol, Identifiable {
     let id = UUID()
-    private let item: ForecastResponseBody
+    private let item: ListItemResponse
     var subscriptions = Set<AnyCancellable>()
     
     var icon: String {
-        switch item.list[0].weather[0].icon {
+        switch item.weather[0].icon {
         case "01d", "01n":
             return "clear_sky"
         case "02d", "02n":
@@ -42,22 +42,20 @@ class ForecastWeather: ObservableObject, WeatherProtocol, Identifiable {
         }
     }
     
-    var cityName: String {
-        return item.city.name
-    }
+    var cityName: String
     
     var temp: Int {
-        return Int(convertTemp(tempValue: item.list[0].main.temp, from: .kelvin, to: .celsius))
+        return Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
 
     }
     
     var main: String {
-        return item.list[0].weather[0].main
+        return item.weather[0].main
     }
     
     var day: String {
         let currentDate = Date()
-        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.list[0].dt))
+        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
         let calendar = Calendar.current
         
         if calendar.isDate(inputDate, inSameDayAs: currentDate) {
@@ -69,8 +67,9 @@ class ForecastWeather: ObservableObject, WeatherProtocol, Identifiable {
         }
     }
     
-    init(_ response: ForecastResponseBody) {
-        self.item = response
+    init(_ item: ListItemResponse, cityName: String) {
+        self.item = item
+        self.cityName = cityName
     }
     
     private func convertTemp(tempValue: Double, from inputType: UnitTemperature, to outputType: UnitTemperature) -> Double {
