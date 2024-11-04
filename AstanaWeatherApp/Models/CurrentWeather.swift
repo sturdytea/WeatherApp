@@ -14,6 +14,7 @@ import Combine
 
 class CurrentWeather: ObservableObject, WeatherProtocol {
     private let item: CurrentResponseBody
+    private let formatter = DateFormatter()
     var subscriptions = Set<AnyCancellable>()
     
     var icon: String {
@@ -45,27 +46,70 @@ class CurrentWeather: ObservableObject, WeatherProtocol {
         return item.name
     }
     
-    var temp: Int {
-        return Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
-
+    var temp: String {
+        let temp = Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
+        return "\(temp)℃"
+    }
+    
+    var maxTemp: String {
+        let temp = Int(convertTemp(tempValue: item.main.temp_max, from: .kelvin, to: .celsius))
+        return "\(temp)°"
+    }
+    
+    var minTemp: String {
+        let temp = Int(convertTemp(tempValue: item.main.temp_min, from: .kelvin, to: .celsius))
+        return "\(temp)°"
+    }
+    
+    var feelsLike: String {
+        let temp = Int(convertTemp(tempValue: item.main.feels_like, from: .kelvin, to: .celsius))
+        return "\(temp)℃"
     }
     
     var main: String {
         return item.weather[0].main
     }
     
-    var day: String {
-        let currentDate = Date()
+    var date: String {
         let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
-        let calendar = Calendar.current
-        
-        if calendar.isDate(inputDate, inSameDayAs: currentDate) {
-                    return "Today"
+        formatter.dateFormat = "EEEE, dd MMM"
+        return formatter.string(from: inputDate)
+    }
+    
+    var year: String {
+        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
+        formatter.dateFormat = "yyyy"
+        return formatter.string(from: inputDate)
+    }
+    
+    var rain: String {
+        var precipitation = ""
+        if item.rain?.h != nil {
+            precipitation = "\(String(describing: item.rain?.h))mm/h"
         } else {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "EEEE"
-            return formatter.string(from: inputDate)
+            return "-"
         }
+        return precipitation
+    }
+    
+    var pressure: String {
+        let pressure = item.main.pressure
+        return "\(pressure)hpa"
+    }
+    
+    var visibility: String {
+        let visibility = item.visibility / 1000
+        return "\(visibility)km"
+    }
+    
+    var wind: String {
+        let wind = item.wind.speed
+        return "\(wind)km/h"
+    }
+    
+    var humidity: String {
+        let humidity = item.main.humidity
+        return "\(humidity)%"
     }
     
     init(_ response: CurrentResponseBody) {

@@ -17,4 +17,15 @@ struct CurrentResponseBody: Decodable {
     let weather: [WeatherResponse]
     let main: MainResponse
     let wind: WindResponse
+    let visibility: Int
+    let rain: RainResponse?
+    let clouds: CloudsResponse
+}
+
+struct RainResponse: Decodable {
+    let h: Double
+}
+
+struct CloudsResponse: Decodable {
+    let all: Int
 }

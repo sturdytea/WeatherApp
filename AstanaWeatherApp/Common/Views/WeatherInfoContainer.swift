@@ -13,50 +13,51 @@ import SwiftUI
 
 struct WeatherInfoContainer: View {
     
-    let weather: WeatherProtocol
+    let weather: CurrentWeather
     
     init(weather: CurrentWeather) {
-        self.weather = weather
-    }
-    
-    init(weather: ForecastWeather) {
         self.weather = weather
     }
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(weather.day)
-                    .font(.title)
-                    .fontWeight(.medium)
-                    .padding(EdgeInsets(top: 26, leading: 0, bottom: 16, trailing: 0))
-                Text(weather.main)
-                    .padding(.top, 8)
+                Text(weather.date)
+                Text(weather.cityName)
+                    .font(.custom("Montserrat-Regular", size: 14))
+                    .opacity(0.7)
+                Spacer()
+                Text(weather.temp)
+                    .font(.custom("Montserrat-SemiBold", size: 44))
+                    .padding(.bottom, 4)
+                HStack {
+                    Text(weather.maxTemp)
+                    Divider()
+                        .frame(width: 1)
+                        .frame(height: 16)
+                        .background(.white)
+                        .opacity(0.3)
+                    Text(weather.minTemp)
+                        .opacity(0.3)
+                }
             }
             Spacer()
-            VStack(alignment: .trailing) {
+            ZStack(alignment: .trailing) {
+                VStack {
+                    Text(weather.year)
+                    Spacer()
+                }
                 Image(weather.icon)
                     .resizable()
-                    .frame(width: 60, height: 60)
-                    .padding(.top, 16)
-                    .foregroundColor(.white)
-                Text("\(Int(weather.temp))℃")
-                    .padding(.top, 8)
+                    .scaledToFit()
+                    .frame(width: 100)
             }
         }
-        .padding(16)
-        .background(Color.custom.primary)
+        .frame(maxWidth: UIScreen.main.bounds.width - 16,  maxHeight: 140)
+        .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+        .background(.widgetBackground)
         .foregroundColor(.white)
-        .cornerRadius(30)
+        .font(.custom("Montserrat-SemiBold", size: 16))
+        .cornerRadius(20)
     }
-}
-
-#Preview {
-    WeatherInfoContainer(weather: CurrentWeather(CurrentResponseBody(
-            name: "Test City",
-            dt: 0,
-            weather: [WeatherResponse(id: 1, main: "Clear", icon: "cloud.sun")],
-            main: MainResponse(temp: 300.0, pressure: 1012, humidity: 50),
-            wind: WindResponse(speed: 5.0)
-        )))
 }

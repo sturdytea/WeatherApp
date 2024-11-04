@@ -12,9 +12,8 @@
 import Foundation
 import Combine
 
-var apiKey = "5ae854b2f4529bd064746c2e49aa257a"
-
 class WeatherManager {
+    private let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? "API Key"
     private let session: URLSession
     var subscriptions = Set<AnyCancellable>()
     
@@ -44,6 +43,30 @@ class WeatherManager {
             .dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: ForecastResponseBody.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func hourlyWeatherPublisher(lon: Double = 71.446, lat: Double = 51.1801) -> AnyPublisher<HourlyResponseBody, Error> {
+        guard let url = URL(string: "https://api.openweathermap.org/data/3.0/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,daily,alerts&appid=\(apiKey)") else {
+            fatalError("Missing URL")
+        }
+        
+        return URLSession.shared
+            .dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: HourlyResponseBody.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func airPolutionPublisher(lon: Double = 71.446, lat: Double = 51.1801) -> AnyPublisher<AirPolutionResponseBody, Error> {
+        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/air_pollution?lat=\(lat)&lon=\(lon)&appid=\(apiKey)") else {
+            fatalError("Missing URL")
+        }
+        
+        return URLSession.shared
+            .dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: AirPolutionResponseBody.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }

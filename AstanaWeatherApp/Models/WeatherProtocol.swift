@@ -15,7 +15,10 @@ import Combine
 protocol WeatherProtocol {
     var icon: String { get }
     var cityName: String { get }
-    var temp: Int { get }
+    var temp: String { get }
+    var maxTemp: String { get }
+    var minTemp: String { get }
     var main: String { get }
-    var day: String { get }
+    var date: String { get }
+    var year: String { get }
 }

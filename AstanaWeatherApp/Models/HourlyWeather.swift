@@ -1,9 +1,9 @@
 //
 //
-// ForecastWeather.swift
+// HourlyWeather.swift
 // AstanaWeatherApp
 //
-// Created by sturdytea on 10.09.2024.
+// Created by sturdytea on 29.10.2024.
 //
 // GitHub: https://github.com/sturdytea
 //
@@ -12,26 +12,11 @@
 import Foundation
 import Combine
 
-class ForecastWeather: ObservableObject, Identifiable {
-    var maxTemp: Int = 2222
-    
-    var minTemp: Int = 2222
-    
+class HourlyWeather: ObservableObject, Identifiable {
     let id = UUID()
-    private let item: ListItemResponse
+    private let item: HourWeatherResponse
+    private let formatter = DateFormatter()
     var subscriptions = Set<AnyCancellable>()
-    
-    var year: String {
-        let currentDate = Date()
-        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
-        let calendar = Calendar.current
-        
-        
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy"
-            return formatter.string(from: inputDate)
-        
-    }
     
     var icon: String {
         switch item.weather[0].icon {
@@ -58,32 +43,24 @@ class ForecastWeather: ObservableObject, Identifiable {
         }
     }
     
-    var cityName: String
+    var date: String {
+        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
+        formatter.dateFormat = "EEEE"
+        return formatter.string(from: inputDate)
+    }
+    
+    var time: String {
+        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: inputDate)
+    }
     
     var temp: Int {
-        return Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
-
+        return Int(convertTemp(tempValue: item.temp, from: .kelvin, to: .celsius))
     }
     
-    var main: String {
-        return item.weather[0].main
-    }
-    
-    var date: String {
-        let currentDate = Date()
-        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
-        let calendar = Calendar.current
-        
-      
-            let formatter = DateFormatter()
-            formatter.dateFormat = "EEEE"
-            return formatter.string(from: inputDate)
-        
-    }
-    
-    init(_ item: ListItemResponse, cityName: String) {
+    init(_ item: HourWeatherResponse) {
         self.item = item
-        self.cityName = cityName
     }
     
     private func convertTemp(tempValue: Double, from inputType: UnitTemperature, to outputType: UnitTemperature) -> Double {

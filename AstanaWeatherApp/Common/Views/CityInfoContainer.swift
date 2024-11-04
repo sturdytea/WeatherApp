@@ -36,18 +36,8 @@ struct CityInfoContainer: View {
                 .padding(8)
         }
         .padding(16)
-        .background(Color.custom.primary)
+        .background(.widgetBackground)
         .foregroundColor(.white)
         .cornerRadius(30)
     }
-}
-
-#Preview {
-    CityInfoContainer(weather: CurrentWeather(CurrentResponseBody(
-        name: "Test City",
-        dt: 0,
-        weather: [WeatherResponse(id: 1, main: "Clear", icon: "cloud.sun")],
-        main: MainResponse(temp: 300.0, pressure: 1012, humidity: 50),
-        wind: WindResponse(speed: 5.0)
-    )))
 }
