@@ -24,6 +24,10 @@ struct CurrentResponseBody: Decodable {
 
 struct RainResponse: Decodable {
     let h: Double
+    
+    private enum CodingKeys: String, CodingKey {
+        case h = "1h"
+    }
 }
 
 struct CloudsResponse: Decodable {

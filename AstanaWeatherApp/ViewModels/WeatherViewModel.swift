@@ -14,6 +14,7 @@ import Combine
 
 class WeatherViewModel: ObservableObject {
     var weatherManager = WeatherManager()
+    @Published var locationManager = LocationManager()
     @Published var forecastWeatherRecords: [ForecastWeather] = []
     @Published var hourlyWeatherRecords: [HourlyWeather] = []
     @Published var city = "Astana"
@@ -22,14 +23,40 @@ class WeatherViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     
     init() {
-        fetchCurrentWeather()
-        fetchHourlyWeather()
-        fetchAirPolutionData()
-//        fetchForecastWeather()
+        bindLocationUpdates()
     }
     
-    func fetchCurrentWeather() {
+    func bindLocationUpdates() {
+        locationManager.$lastLocation
+            .compactMap{ $0 }
+            .sink { [weak self] coordinate in
+                print("[WeatherViewModel] bindLocationUpdates(): lon: \(coordinate.longitude), lat: \(coordinate.latitude)")
+                self?.fetchCurrentWeatherByCoordinates(lon: coordinate.longitude, lat: coordinate.latitude)
+                self?.fetchHourlyWeatherByCoordinates(lon: coordinate.longitude, lat: coordinate.latitude)
+                self?.fetchAirPolutionData(lon: coordinate.longitude, lat: coordinate.latitude)
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func fetchCurrentWeatherByCityName() {
         weatherManager.currentWeatherPublisher(name: city)
+            .map(CurrentWeather.init)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("fetchCurrentWeather(): Completion finished successfully")
+                case .failure(let error):
+                    print("Error: fetchCurrentWeather() \(error)")
+                }
+            }, receiveValue: { value in
+                self.currentWeatherRecord = value
+            })
+            .store(in: &subscriptions)
+    }
+    
+    func fetchCurrentWeatherByCoordinates(lon: Double, lat: Double) {
+        weatherManager.currentWeatherPublisher(lon: lon, lat: lat)
             .map(CurrentWeather.init)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -67,8 +94,8 @@ class WeatherViewModel: ObservableObject {
 //            .store(in: &subscriptions)
 //    }
     
-    func fetchHourlyWeather() {
-        weatherManager.hourlyWeatherPublisher()
+    func fetchHourlyWeatherByCoordinates(lon: Double, lat: Double) {
+        weatherManager.hourlyWeatherPublisher(lon: lon, lat: lat)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -89,9 +116,8 @@ class WeatherViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    func fetchAirPolutionData() {
-        weatherManager.airPolutionPublisher()
-//            .map(AirPolutionData.init)
+    func fetchAirPolutionData(lon: Double, lat: Double) {
+        weatherManager.airPolutionPublisher(lon: lon, lat: lat)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -104,8 +130,6 @@ class WeatherViewModel: ObservableObject {
                 let recievedValue = value.list
                     .map(AirPolutionData.init)
                 self.airPolutionDataRecord = recievedValue[0]
-//                print("fetchAirPolutionData(): \(self.airPolutionDataRecord?.aqi)")
-//                self.airPolutionDataRecord = value
             })
             .store(in: &subscriptions)
     }

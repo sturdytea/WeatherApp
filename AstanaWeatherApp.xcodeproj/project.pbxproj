@@ -24,6 +24,7 @@
 		B894E4C02C760A8F0022DE98 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4BF2C760A8F0022DE98 /* DetailsView.swift */; };
 		B894E4C32C7733FD0022DE98 /* CityInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4C22C7733FD0022DE98 /* CityInfoContainer.swift */; };
 		B894E4CA2C7E63AF0022DE98 /* WeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4C92C7E63AF0022DE98 /* WeatherError.swift */; };
+		B897C8832CDB7D2E0012C006 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B897C8822CDB7D2E0012C006 /* LocationManager.swift */; };
 		B8BA23E12CCFC7A90063BD41 /* WeekdayFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BA23E02CCFC7A90063BD41 /* WeekdayFilterItem.swift */; };
 		B8BA24432CD021080063BD41 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8BA243D2CD021080063BD41 /* Montserrat-Light.ttf */; };
 		B8BA24442CD021080063BD41 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8BA243E2CD021080063BD41 /* Montserrat-LightItalic.ttf */; };
@@ -61,6 +62,7 @@
 		B894E4BF2C760A8F0022DE98 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		B894E4C22C7733FD0022DE98 /* CityInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoContainer.swift; sourceTree = "<group>"; };
 		B894E4C92C7E63AF0022DE98 /* WeatherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherError.swift; sourceTree = "<group>"; };
+		B897C8822CDB7D2E0012C006 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B8BA23E02CCFC7A90063BD41 /* WeekdayFilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayFilterItem.swift; sourceTree = "<group>"; };
 		B8BA243D2CD021080063BD41 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		B8BA243E2CD021080063BD41 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				B86FC9012C6E31700064CFBA /* Assets.xcassets */,
 				B86FC9032C6E31700064CFBA /* Preview Content */,
 				B86FC91C2C748AC40064CFBA /* WeatherManager.swift */,
+				B897C8822CDB7D2E0012C006 /* LocationManager.swift */,
 			);
 			path = AstanaWeatherApp;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				B894E4CA2C7E63AF0022DE98 /* WeatherError.swift in Sources */,
 				B8BA23E12CCFC7A90063BD41 /* WeekdayFilterItem.swift in Sources */,
 				B8BA244C2CD0C4070063BD41 /* HourlyResponseBody.swift in Sources */,
+				B897C8832CDB7D2E0012C006 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

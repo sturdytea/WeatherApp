@@ -34,6 +34,18 @@ class WeatherManager {
             .eraseToAnyPublisher()
     }
     
+    func currentWeatherPublisher(lon: Double, lat: Double) -> AnyPublisher<CurrentResponseBody, Error> {
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lon=\(lon)&lat=\(lat)&appid=\(apiKey)") else {
+            fatalError("Missing URL") // TODO: Handle as WeatherError
+        }
+        
+        return URLSession.shared
+            .dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: CurrentResponseBody.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
     func forecastWeatherPublisher(name: String) -> AnyPublisher<ForecastResponseBody, Error> {
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(name)&cnt=5&appid=\(apiKey)") else {
             fatalError("Missing URL") // TODO: Handle as WeatherError
@@ -46,7 +58,7 @@ class WeatherManager {
             .eraseToAnyPublisher()
     }
     
-    func hourlyWeatherPublisher(lon: Double = 71.446, lat: Double = 51.1801) -> AnyPublisher<HourlyResponseBody, Error> {
+    func hourlyWeatherPublisher(lon: Double, lat: Double) -> AnyPublisher<HourlyResponseBody, Error> {
         guard let url = URL(string: "https://api.openweathermap.org/data/3.0/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,daily,alerts&appid=\(apiKey)") else {
             fatalError("Missing URL")
         }
@@ -58,7 +70,7 @@ class WeatherManager {
             .eraseToAnyPublisher()
     }
     
-    func airPolutionPublisher(lon: Double = 71.446, lat: Double = 51.1801) -> AnyPublisher<AirPolutionResponseBody, Error> {
+    func airPolutionPublisher(lon: Double, lat: Double) -> AnyPublisher<AirPolutionResponseBody, Error> {
         guard let url = URL(string: "http://api.openweathermap.org/data/2.5/air_pollution?lat=\(lat)&lon=\(lon)&appid=\(apiKey)") else {
             fatalError("Missing URL")
         }
