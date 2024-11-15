@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>WidgetBackgroundColor</string>
+	</dict>
 	<key>API_KEY</key>
 	<string>5ae854b2f4529bd064746c2e49aa257a</string>
 	<key>NSAppTransportSecurity</key>

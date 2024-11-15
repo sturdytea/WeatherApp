@@ -25,6 +25,7 @@
 		B894E4C32C7733FD0022DE98 /* CityInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4C22C7733FD0022DE98 /* CityInfoContainer.swift */; };
 		B894E4CA2C7E63AF0022DE98 /* WeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4C92C7E63AF0022DE98 /* WeatherError.swift */; };
 		B897C8832CDB7D2E0012C006 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B897C8822CDB7D2E0012C006 /* LocationManager.swift */; };
+		B8B4B7F92CE6365600896EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B4B7F82CE6365600896EF6 /* LaunchScreen.storyboard */; };
 		B8BA23E12CCFC7A90063BD41 /* WeekdayFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BA23E02CCFC7A90063BD41 /* WeekdayFilterItem.swift */; };
 		B8BA24432CD021080063BD41 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8BA243D2CD021080063BD41 /* Montserrat-Light.ttf */; };
 		B8BA24442CD021080063BD41 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8BA243E2CD021080063BD41 /* Montserrat-LightItalic.ttf */; };
@@ -63,6 +64,7 @@
 		B894E4C22C7733FD0022DE98 /* CityInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoContainer.swift; sourceTree = "<group>"; };
 		B894E4C92C7E63AF0022DE98 /* WeatherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherError.swift; sourceTree = "<group>"; };
 		B897C8822CDB7D2E0012C006 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B8B4B7F82CE6365600896EF6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8BA23E02CCFC7A90063BD41 /* WeekdayFilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayFilterItem.swift; sourceTree = "<group>"; };
 		B8BA243D2CD021080063BD41 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		B8BA243E2CD021080063BD41 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				B86FC9032C6E31700064CFBA /* Preview Content */,
 				B86FC91C2C748AC40064CFBA /* WeatherManager.swift */,
 				B897C8822CDB7D2E0012C006 /* LocationManager.swift */,
+				B8B4B7F82CE6365600896EF6 /* LaunchScreen.storyboard */,
 			);
 			path = AstanaWeatherApp;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BA24432CD021080063BD41 /* Montserrat-Light.ttf in Resources */,
+				B8B4B7F92CE6365600896EF6 /* LaunchScreen.storyboard in Resources */,
 				B8BA24442CD021080063BD41 /* Montserrat-LightItalic.ttf in Resources */,
 				B8BA24452CD021080063BD41 /* Montserrat-SemiBold.ttf in Resources */,
 				B8BA24462CD021080063BD41 /* Montserrat-Regular.ttf in Resources */,
@@ -383,6 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -440,6 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
