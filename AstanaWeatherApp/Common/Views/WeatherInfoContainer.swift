@@ -12,32 +12,27 @@
 import SwiftUI
 
 struct WeatherInfoContainer: View {
-    
     let weather: CurrentWeather
-    
-    init(weather: CurrentWeather) {
-        self.weather = weather
-    }
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(weather.date)
                 Text(weather.cityName)
-                    .font(.custom("Montserrat-Regular", size: 14))
+                    .font(.secondaryTitle)
                     .opacity(0.7)
                 Spacer()
-                Text(weather.temp)
-                    .font(.custom("Montserrat-SemiBold", size: 44))
+                Text("\(weather.temp)\(LocalizedContent.Symbol.celsius)")
+                    .font(.currentDegree)
                     .padding(.bottom, 4)
                 HStack {
-                    Text(weather.maxTemp)
+                    Text("\(weather.maxTemp)\(LocalizedContent.Symbol.degree)")
                     Divider()
                         .frame(width: 1)
                         .frame(height: 16)
                         .background(.white)
                         .opacity(0.3)
-                    Text(weather.minTemp)
+                    Text("\(weather.minTemp)\(LocalizedContent.Symbol.degree)")
                         .opacity(0.3)
                 }
             }
@@ -57,7 +52,7 @@ struct WeatherInfoContainer: View {
         .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
         .background(.widgetBackground)
         .foregroundColor(.white)
-        .font(.custom("Montserrat-SemiBold", size: 16))
+        .font(.primaryTitle)
         .cornerRadius(20)
     }
 }

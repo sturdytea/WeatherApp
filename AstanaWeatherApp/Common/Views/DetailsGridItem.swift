@@ -13,14 +13,8 @@ import SwiftUI
 
 struct DetailsGridItem: View {
     var imageName: String
-    var name: String
     var value: String
-    
-    init(_ imageName: String, value: String, _ name: String) {
-        self.imageName = imageName
-        self.value = value
-        self.name = name
-    }
+    var name: String
     
     var body: some View {
         VStack(alignment: .center) {
@@ -30,14 +24,14 @@ struct DetailsGridItem: View {
                 .frame(width: 20)
                 .opacity(0.7)
             Text(value)
-                .font(.custom("Montserrat-Regular", size: 12))
+                .font(.secondaryTitle)
             Text(name)
-                .font(.custom("Montserrat-Light", size: 10))
+                .font(.primaryDescription)
         }
         .foregroundStyle(.white)
     }
 }
 
 #Preview {
-    DetailsGridItem("121", value: "121", "Test")
+    DetailsGridItem(imageName: "121", value: "Test", name: "121")
 }

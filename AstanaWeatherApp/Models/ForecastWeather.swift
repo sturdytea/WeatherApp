@@ -12,82 +12,66 @@
 import Foundation
 import Combine
 
-class ForecastWeather: ObservableObject, Identifiable {
-    var maxTemp: Int = 2222
-    
-    var minTemp: Int = 2222
-    
-    let id = UUID()
+final class ForecastWeather: ObservableObject, WeatherProtocol {
     private let item: ListItemResponse
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
+    private lazy var formatter = DateFormatter()
+    private lazy var calendar = Calendar.current
+    private lazy var currentDate = Date()
+    private lazy var inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
     
     var year: String {
-        let currentDate = Date()
-        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
-        let calendar = Calendar.current
-        
-        
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy"
-            return formatter.string(from: inputDate)
-        
+        formatter.dateFormat = "yyyy"
+        return formatter.string(from: inputDate)
+    }
+    
+    var date: String {
+        formatter.dateFormat = "EEEE"
+        return formatter.string(from: inputDate)
     }
     
     var icon: String {
+        guard !item.weather[0].icon.isEmpty else { return "ClearSky" }
+        
         switch item.weather[0].icon {
         case "01d", "01n":
-            return "clear_sky"
+            return "ClearSky"
         case "02d", "02n":
-            return "few_clouds"
+            return "FewClouds"
         case "03d", "03n":
-            return "scattered_clouds"
+            return "ScatteredClouds"
         case "04d", "04n":
-            return "broken_clouds"
+            return "BrokenClouds"
         case "09d", "09n":
-            return "shower_rain"
+            return "ShowerRain"
         case "10d", "10n":
             return "rain"
         case "11d", "11n":
-            return "thunderstorm"
+            return "Thunderstorm"
         case "13d", "13n":
-            return "snow"
+            return "Snow"
         case "50d", "50n":
-            return "mist"
+            return "Mist"
         default:
-            return "clear_sky"
+            return "ClearSky"
         }
     }
     
-    var cityName: String
-    
     var temp: Int {
-        return Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
+        Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
 
     }
     
     var main: String {
-        return item.weather[0].main
+        item.weather[0].main
     }
     
-    var date: String {
-        let currentDate = Date()
-        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
-        let calendar = Calendar.current
-        
-      
-            let formatter = DateFormatter()
-            formatter.dateFormat = "EEEE"
-            return formatter.string(from: inputDate)
-        
-    }
-    
-    init(_ item: ListItemResponse, cityName: String) {
+    init(_ item: ListItemResponse) {
         self.item = item
-        self.cityName = cityName
     }
     
     private func convertTemp(tempValue: Double, from inputType: UnitTemperature, to outputType: UnitTemperature) -> Double {
-        let formatter = MeasurementFormatter()
+        lazy var formatter = MeasurementFormatter()
         formatter.numberFormatter.maximumFractionDigits = 0
         formatter.unitOptions = .providedUnit
         let input = Measurement(value: tempValue, unit: inputType)

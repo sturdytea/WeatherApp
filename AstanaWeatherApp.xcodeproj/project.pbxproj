@@ -15,17 +15,18 @@
 		B809721C2CD25A2F0000AAE9 /* DetailsGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809721B2CD25A2F0000AAE9 /* DetailsGridItem.swift */; };
 		B86FC8FE2C6E316E0064CFBA /* AstanaWeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC8FD2C6E316E0064CFBA /* AstanaWeatherAppApp.swift */; };
 		B86FC9002C6E316E0064CFBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC8FF2C6E316E0064CFBA /* ContentView.swift */; };
-		B86FC9022C6E31700064CFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86FC9012C6E31700064CFBA /* Assets.xcassets */; };
+		B86FC9022C6E31700064CFBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86FC9012C6E31700064CFBA /* Images.xcassets */; };
 		B86FC9052C6E31700064CFBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86FC9042C6E31700064CFBA /* Preview Assets.xcassets */; };
 		B86FC90D2C6E31A30064CFBA /* WeatherInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC90C2C6E31A30064CFBA /* WeatherInfoContainer.swift */; };
 		B86FC9192C7481030064CFBA /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC9182C7481030064CFBA /* WeatherResponse.swift */; };
 		B86FC91D2C748AC40064CFBA /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC91C2C748AC40064CFBA /* WeatherManager.swift */; };
 		B86FC9212C7490680064CFBA /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC9202C7490680064CFBA /* WeatherViewModel.swift */; };
-		B894E4C02C760A8F0022DE98 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4BF2C760A8F0022DE98 /* DetailsView.swift */; };
-		B894E4C32C7733FD0022DE98 /* CityInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4C22C7733FD0022DE98 /* CityInfoContainer.swift */; };
 		B894E4CA2C7E63AF0022DE98 /* WeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894E4C92C7E63AF0022DE98 /* WeatherError.swift */; };
 		B897C8832CDB7D2E0012C006 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B897C8822CDB7D2E0012C006 /* LocationManager.swift */; };
-		B8B4B7F92CE6365600896EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B4B7F82CE6365600896EF6 /* LaunchScreen.storyboard */; };
+		B8B4B86B2CEA718F00896EF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B4B86A2CEA718F00896EF6 /* Colors.xcassets */; };
+		B8B4B8702CEA7BCE00896EF6 /* LocalizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B4B86F2CEA7BCE00896EF6 /* LocalizedContent.swift */; };
+		B8B4B8732CEA7D4E00896EF6 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B4B8722CEA7D4E00896EF6 /* Font.swift */; };
+		B8B4B8772CECA55B00896EF6 /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B4B8762CECA55B00896EF6 /* ForecastWeather.swift */; };
 		B8BA23E12CCFC7A90063BD41 /* WeekdayFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BA23E02CCFC7A90063BD41 /* WeekdayFilterItem.swift */; };
 		B8BA24432CD021080063BD41 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8BA243D2CD021080063BD41 /* Montserrat-Light.ttf */; };
 		B8BA24442CD021080063BD41 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8BA243E2CD021080063BD41 /* Montserrat-LightItalic.ttf */; };
@@ -40,7 +41,6 @@
 		B8CBB0762C90C841003CE614 /* MainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB0752C90C841003CE614 /* MainResponse.swift */; };
 		B8CBB0782C90C85E003CE614 /* WindResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB0772C90C85E003CE614 /* WindResponse.swift */; };
 		B8CBB07A2C90CA0A003CE614 /* ForecastResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB0792C90CA0A003CE614 /* ForecastResponseBody.swift */; };
-		B8CBB0802C90CDD0003CE614 /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB07F2C90CDD0003CE614 /* ForecastWeather.swift */; };
 		B8CBB0822C90DAE6003CE614 /* WeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB0812C90DAE6003CE614 /* WeatherProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,24 +54,25 @@
 		B86FC8FA2C6E316E0064CFBA /* AstanaWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstanaWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86FC8FD2C6E316E0064CFBA /* AstanaWeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstanaWeatherAppApp.swift; sourceTree = "<group>"; };
 		B86FC8FF2C6E316E0064CFBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B86FC9012C6E31700064CFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B86FC9012C6E31700064CFBA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B86FC9042C6E31700064CFBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B86FC90C2C6E31A30064CFBA /* WeatherInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoContainer.swift; sourceTree = "<group>"; };
 		B86FC9182C7481030064CFBA /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		B86FC91C2C748AC40064CFBA /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		B86FC9202C7490680064CFBA /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
-		B894E4BF2C760A8F0022DE98 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		B894E4C22C7733FD0022DE98 /* CityInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoContainer.swift; sourceTree = "<group>"; };
 		B894E4C92C7E63AF0022DE98 /* WeatherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherError.swift; sourceTree = "<group>"; };
 		B897C8822CDB7D2E0012C006 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		B8B4B7F82CE6365600896EF6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8B4B86A2CEA718F00896EF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		B8B4B86F2CEA7BCE00896EF6 /* LocalizedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedContent.swift; sourceTree = "<group>"; };
+		B8B4B8722CEA7D4E00896EF6 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		B8B4B8762CECA55B00896EF6 /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		B8BA23E02CCFC7A90063BD41 /* WeekdayFilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayFilterItem.swift; sourceTree = "<group>"; };
 		B8BA243D2CD021080063BD41 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		B8BA243E2CD021080063BD41 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
 		B8BA243F2CD021080063BD41 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		B8BA24402CD021080063BD41 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		B8BA24412CD021080063BD41 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		B8BA24482CD021220063BD41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B8BA24482CD021220063BD41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8BA24492CD034F60063BD41 /* HourWeatherItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourWeatherItem.swift; sourceTree = "<group>"; };
 		B8BA244B2CD0C4070063BD41 /* HourlyResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyResponseBody.swift; sourceTree = "<group>"; };
 		B8BA244D2CD0F50C0063BD41 /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		B8CBB0752C90C841003CE614 /* MainResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponse.swift; sourceTree = "<group>"; };
 		B8CBB0772C90C85E003CE614 /* WindResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindResponse.swift; sourceTree = "<group>"; };
 		B8CBB0792C90CA0A003CE614 /* ForecastResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponseBody.swift; sourceTree = "<group>"; };
-		B8CBB07F2C90CDD0003CE614 /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		B8CBB0812C90DAE6003CE614 /* WeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,16 +115,15 @@
 			isa = PBXGroup;
 			children = (
 				B8BA24482CD021220063BD41 /* Info.plist */,
+				B8B4B86E2CEA735300896EF6 /* Assets */,
+				B8B4B86D2CEA732500896EF6 /* Services */,
 				B86FC90B2C6E31800064CFBA /* Common */,
 				B86FC9112C7477A10064CFBA /* Models */,
 				B86FC91A2C74812A0064CFBA /* ViewModels */,
 				B86FC91B2C7481370064CFBA /* Views */,
 				B86FC8FD2C6E316E0064CFBA /* AstanaWeatherAppApp.swift */,
-				B86FC9012C6E31700064CFBA /* Assets.xcassets */,
 				B86FC9032C6E31700064CFBA /* Preview Content */,
-				B86FC91C2C748AC40064CFBA /* WeatherManager.swift */,
-				B897C8822CDB7D2E0012C006 /* LocationManager.swift */,
-				B8B4B7F82CE6365600896EF6 /* LaunchScreen.storyboard */,
+				B8B4B86F2CEA7BCE00896EF6 /* LocalizedContent.swift */,
 			);
 			path = AstanaWeatherApp;
 			sourceTree = "<group>";
@@ -140,6 +139,7 @@
 		B86FC90B2C6E31800064CFBA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B8B4B8712CEA7CE800896EF6 /* Extensions */,
 				B8BA243C2CD0208B0063BD41 /* Fonts */,
 				B894E4C12C7733CB0022DE98 /* Views */,
 			);
@@ -153,7 +153,7 @@
 				B894E4C92C7E63AF0022DE98 /* WeatherError.swift */,
 				B8CBB0812C90DAE6003CE614 /* WeatherProtocol.swift */,
 				B8CBB0732C8879B5003CE614 /* CurrentWeather.swift */,
-				B8CBB07F2C90CDD0003CE614 /* ForecastWeather.swift */,
+				B8B4B8762CECA55B00896EF6 /* ForecastWeather.swift */,
 				B8BA244D2CD0F50C0063BD41 /* HourlyWeather.swift */,
 				B80972132CD10C750000AAE9 /* AirPolutionData.swift */,
 			);
@@ -172,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				B86FC8FF2C6E316E0064CFBA /* ContentView.swift */,
-				B894E4BF2C760A8F0022DE98 /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				B86FC90C2C6E31A30064CFBA /* WeatherInfoContainer.swift */,
-				B894E4C22C7733FD0022DE98 /* CityInfoContainer.swift */,
 				B8BA23E02CCFC7A90063BD41 /* WeekdayFilterItem.swift */,
 				B8BA24492CD034F60063BD41 /* HourWeatherItem.swift */,
 				B809720F2CD103B80000AAE9 /* AirPolutionContainer.swift */,
@@ -204,6 +202,32 @@
 				B8CBB0772C90C85E003CE614 /* WindResponse.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		B8B4B86D2CEA732500896EF6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B897C8822CDB7D2E0012C006 /* LocationManager.swift */,
+				B86FC91C2C748AC40064CFBA /* WeatherManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B8B4B86E2CEA735300896EF6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B8B4B86A2CEA718F00896EF6 /* Colors.xcassets */,
+				B86FC9012C6E31700064CFBA /* Images.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B8B4B8712CEA7CE800896EF6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8B4B8722CEA7D4E00896EF6 /* Font.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B8BA243C2CD0208B0063BD41 /* Fonts */ = {
@@ -285,13 +309,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BA24432CD021080063BD41 /* Montserrat-Light.ttf in Resources */,
-				B8B4B7F92CE6365600896EF6 /* LaunchScreen.storyboard in Resources */,
 				B8BA24442CD021080063BD41 /* Montserrat-LightItalic.ttf in Resources */,
 				B8BA24452CD021080063BD41 /* Montserrat-SemiBold.ttf in Resources */,
 				B8BA24462CD021080063BD41 /* Montserrat-Regular.ttf in Resources */,
 				B8BA24472CD021080063BD41 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				B8B4B86B2CEA718F00896EF6 /* Colors.xcassets in Resources */,
 				B86FC9052C6E31700064CFBA /* Preview Assets.xcassets in Resources */,
-				B86FC9022C6E31700064CFBA /* Assets.xcassets in Resources */,
+				B86FC9022C6E31700064CFBA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,17 +333,17 @@
 				B8CBB0722C8841B7003CE614 /* CurrentResponseBody.swift in Sources */,
 				B86FC9002C6E316E0064CFBA /* ContentView.swift in Sources */,
 				B8CBB0782C90C85E003CE614 /* WindResponse.swift in Sources */,
+				B8B4B8702CEA7BCE00896EF6 /* LocalizedContent.swift in Sources */,
 				B809721A2CD21BAD0000AAE9 /* WeatherDetailsContainer.swift in Sources */,
+				B8B4B8772CECA55B00896EF6 /* ForecastWeather.swift in Sources */,
 				B86FC9212C7490680064CFBA /* WeatherViewModel.swift in Sources */,
 				B809721C2CD25A2F0000AAE9 /* DetailsGridItem.swift in Sources */,
-				B8CBB0802C90CDD0003CE614 /* ForecastWeather.swift in Sources */,
 				B86FC8FE2C6E316E0064CFBA /* AstanaWeatherAppApp.swift in Sources */,
 				B80972182CD1F9760000AAE9 /* CircularProgressView.swift in Sources */,
-				B894E4C02C760A8F0022DE98 /* DetailsView.swift in Sources */,
 				B86FC90D2C6E31A30064CFBA /* WeatherInfoContainer.swift in Sources */,
 				B86FC91D2C748AC40064CFBA /* WeatherManager.swift in Sources */,
+				B8B4B8732CEA7D4E00896EF6 /* Font.swift in Sources */,
 				B80972102CD103B80000AAE9 /* AirPolutionContainer.swift in Sources */,
-				B894E4C32C7733FD0022DE98 /* CityInfoContainer.swift in Sources */,
 				B8CBB0822C90DAE6003CE614 /* WeatherProtocol.swift in Sources */,
 				B8BA244E2CD0F50C0063BD41 /* HourlyWeather.swift in Sources */,
 				B8BA244A2CD034F60063BD41 /* HourWeatherItem.swift in Sources */,

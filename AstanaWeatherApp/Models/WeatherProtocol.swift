@@ -14,11 +14,6 @@ import Combine
 
 protocol WeatherProtocol {
     var icon: String { get }
-    var cityName: String { get }
-    var temp: String { get }
-    var maxTemp: String { get }
-    var minTemp: String { get }
+    var temp: Int { get }
     var main: String { get }
-    var date: String { get }
-    var year: String { get }
 }

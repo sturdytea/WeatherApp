@@ -16,12 +16,9 @@ enum WeatherError: Error {
     
     var description: String {
         switch self {
-        case .network:
-            return "Network error"
-        case .parsing:
-            return "Parsing error"
-        case .fetching:
-            return "File fetching error"
+        case .network: "Network error"
+        case .parsing: "Parsing error"
+        case .fetching: "File fetching error"
         }
     }
 }

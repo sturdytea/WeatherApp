@@ -12,28 +12,23 @@
 import SwiftUI
 
 struct HourWeatherItem: View {
-    
     let weather: HourlyWeather
-    
-    init(weather: HourlyWeather) {
-        self.weather = weather
-    }
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("\(weather.temp)℃")
+            Text("\(weather.temp)\(LocalizedContent.Symbol.celsius)")
             Image(weather.icon)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 20)
             Text("\(weather.time)")
-                .font(.custom("Montserrat-Light", size: 12))
+                .font(.primaryDescription)
         }
         .frame(maxWidth: UIScreen.main.bounds.width / 6 - 16,  maxHeight: 60)
         .padding(EdgeInsets(top: 16, leading: 12, bottom: 14, trailing: 12))
         .background(.widgetBackground)
         .foregroundColor(.white)
-        .font(.custom("Montserrat-Regular", size: 14))
+        .font(.secondaryTitle)
         .cornerRadius(18)
     }
 }

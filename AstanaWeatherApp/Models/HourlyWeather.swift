@@ -12,7 +12,7 @@
 import Foundation
 import Combine
 
-class HourlyWeather: ObservableObject, Identifiable {
+final class HourlyWeather: ObservableObject, Identifiable {
     let id = UUID()
     private let item: HourWeatherResponse
     private let formatter = DateFormatter()
@@ -21,25 +21,25 @@ class HourlyWeather: ObservableObject, Identifiable {
     var icon: String {
         switch item.weather[0].icon {
         case "01d", "01n":
-            return "clear_sky"
+            return "ClearSky"
         case "02d", "02n":
-            return "few_clouds"
+            return "FewClouds"
         case "03d", "03n":
-            return "scattered_clouds"
+            return "ScatteredClouds"
         case "04d", "04n":
-            return "broken_clouds"
+            return "BrokenClouds"
         case "09d", "09n":
-            return "shower_rain"
+            return "ShowerRain"
         case "10d", "10n":
-            return "rain"
+            return "Rain"
         case "11d", "11n":
-            return "thunderstorm"
+            return "Thunderstorm"
         case "13d", "13n":
-            return "snow"
+            return "Snow"
         case "50d", "50n":
-            return "mist"
+            return "Mist"
         default:
-            return "clear_sky"
+            return "ClearSky"
         }
     }
     

@@ -14,29 +14,25 @@ import SwiftUI
 struct AirPolutionContainer: View {
     let data: AirPolutionData
     
-    init(_ data: AirPolutionData) {
-        self.data = data
-    }
-    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                CircularProgressView(data.aqi, data.convertedAqi)
+                CircularProgressView(progress: data.convertedAqi, value: data.aqi)
             }
             Divider()
                 .frame(width: 16)
             VStack(alignment: .leading) {
-                Text("AQI - \(data.result)")
+                Text("\(LocalizedContent.aqi) - \(data.result)")
                     .padding(.bottom, 1)
-                Text("The Air Quality Index (AQI) is used for reporting daily air quality.")
-                    .font(.custom("Montserrat-Light", size: 12))
+                Text(LocalizedContent.aqiDescription)
+                    .font(.primaryDescription)
             }
         }
         .frame(maxWidth: UIScreen.main.bounds.width - 16,  maxHeight: 90)
         .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
         .background(.widgetBackground)
         .foregroundColor(.white)
-        .font(.custom("Montserrat-SemiBold", size: 16))
+        .font(.primaryTitle)
         .cornerRadius(20)
     }
 }

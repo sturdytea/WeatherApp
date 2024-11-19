@@ -12,15 +12,13 @@
 import Foundation
 import Combine
 
-class AirPolutionData: ObservableObject {
+final class AirPolutionData: ObservableObject {
     private let item: AQIListItemResponse
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     var result = ""
     
-    var aqi: Int {
-        return item.main.aqi
-    }
+    var aqi: Int { item.main.aqi }
     
     var convertedAqi: CGFloat {
         var index: CGFloat
@@ -48,37 +46,21 @@ class AirPolutionData: ObservableObject {
         return index
     }
     
-    var co: Int {
-        return Int(item.components.co)
-    }
+    var co: Int { Int(item.components.co) }
     
-    var no: Int {
-        return Int(item.components.no)
-    }
+    var no: Int { Int(item.components.no) }
     
-    var no2: Int {
-        return Int(item.components.no2)
-    }
+    var no2: Int { Int(item.components.no2) }
     
-    var o3: Int {
-        return Int(item.components.o3)
-    }
+    var o3: Int { Int(item.components.o3) }
     
-    var so2: Int {
-        return Int(item.components.so2)
-    }
+    var so2: Int { Int(item.components.so2) }
     
-    var pm2_5: Int {
-        return Int(item.components.pm2_5)
-    }
+    var pm2_5: Int { Int(item.components.pm2_5) }
     
-    var pm10: Int {
-        return Int(item.components.pm10)
-    }
+    var pm10: Int { Int(item.components.pm10) }
     
-    var nh3: Int {
-        return Int(item.components.nh3)
-    }
+    var nh3: Int { Int(item.components.nh3) }
     
     init(_ item: AQIListItemResponse) {
         self.item = item

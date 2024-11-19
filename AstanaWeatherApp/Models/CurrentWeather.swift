@@ -12,104 +12,87 @@
 import Foundation
 import Combine
 
-class CurrentWeather: ObservableObject, WeatherProtocol {
+final class CurrentWeather: ObservableObject, WeatherProtocol {
     private let item: CurrentResponseBody
-    private let formatter = DateFormatter()
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
+    private lazy var formatter = DateFormatter()
+    private lazy var inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
     
     var icon: String {
+        guard !item.weather[0].icon.isEmpty else { return "ClearSky" }
+        
         switch item.weather[0].icon {
         case "01d", "01n":
-            return "clear_sky"
+            return "ClearSky"
         case "02d", "02n":
-            return "few_clouds"
+            return "FewClouds"
         case "03d", "03n":
-            return "scattered_clouds"
+            return "ScatteredClouds"
         case "04d", "04n":
-            return "broken_clouds"
+            return "BrokenClouds"
         case "09d", "09n":
-            return "shower_rain"
+            return "ShowerRain"
         case "10d", "10n":
-            return "rain"
+            return "Rain"
         case "11d", "11n":
-            return "thunderstorm"
+            return "Thunderstorm"
         case "13d", "13n":
-            return "snow"
+            return "Snow"
         case "50d", "50n":
-            return "mist"
+            return "Mist"
         default:
-            return "clear_sky"
+            return "ClearSky"
         }
     }
     
-    var cityName: String {
-        return item.name
+    var cityName: String { item.name }
+    
+    var temp: Int {
+        Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
     }
     
-    var temp: String {
-        let temp = Int(convertTemp(tempValue: item.main.temp, from: .kelvin, to: .celsius))
-        return "\(temp)℃"
+    var maxTemp: Int {
+        Int(convertTemp(tempValue: item.main.temp_max, from: .kelvin, to: .celsius))
     }
     
-    var maxTemp: String {
-        let temp = Int(convertTemp(tempValue: item.main.temp_max, from: .kelvin, to: .celsius))
-        return "\(temp)°"
+    var minTemp: Int {
+        Int(convertTemp(tempValue: item.main.temp_min, from: .kelvin, to: .celsius))
     }
     
-    var minTemp: String {
-        let temp = Int(convertTemp(tempValue: item.main.temp_min, from: .kelvin, to: .celsius))
-        return "\(temp)°"
+    var feelsLike: Int {
+        Int(convertTemp(tempValue: item.main.feels_like, from: .kelvin, to: .celsius))
     }
     
-    var feelsLike: String {
-        let temp = Int(convertTemp(tempValue: item.main.feels_like, from: .kelvin, to: .celsius))
-        return "\(temp)℃"
-    }
-    
-    var main: String {
-        return item.weather[0].main
-    }
+    var main: String { item.weather[0].main }
     
     var date: String {
-        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
         formatter.dateFormat = "EEEE, dd MMM"
         return formatter.string(from: inputDate)
     }
     
     var year: String {
-        let inputDate = Date(timeIntervalSince1970: TimeInterval(item.dt))
         formatter.dateFormat = "yyyy"
         return formatter.string(from: inputDate)
     }
     
-    var rain: String {
-        var precipitation = ""
-        if item.rain?.h != nil {
-            precipitation = "\(String(describing: item.rain?.h))mm/h"
-        } else {
-            return "-"
-        }
-        return precipitation
+    var rain: Double? {
+        item.rain?.h
     }
     
-    var pressure: String {
-        let pressure = item.main.pressure
-        return "\(pressure)hpa"
+    var pressure: Int {
+        item.main.pressure
     }
     
-    var visibility: String {
-        let visibility = item.visibility / 1000
-        return "\(visibility)km"
+    var visibility: Int {
+        item.visibility / 1000
     }
     
-    var wind: String {
-        let wind = item.wind.speed
-        return "\(wind)km/h"
+    var wind: Int {
+        Int(item.wind.speed)
     }
     
-    var humidity: String {
-        let humidity = item.main.humidity
-        return "\(humidity)%"
+    var humidity: Int {
+        item.main.humidity
     }
     
     init(_ response: CurrentResponseBody) {
@@ -117,7 +100,7 @@ class CurrentWeather: ObservableObject, WeatherProtocol {
     }
     
     private func convertTemp(tempValue: Double, from inputType: UnitTemperature, to outputType: UnitTemperature) -> Double {
-        let formatter = MeasurementFormatter()
+        lazy var formatter = MeasurementFormatter()
         formatter.numberFormatter.maximumFractionDigits = 0
         formatter.unitOptions = .providedUnit
         let input = Measurement(value: tempValue, unit: inputType)

@@ -15,11 +15,6 @@ struct CircularProgressView: View {
     let progress: CGFloat
     let value: Int
     
-    init(_ value: Int, _ progress: CGFloat) {
-        self.progress = CGFloat(progress)
-        self.value = value
-    }
-    
     var body: some View {
         ZStack {
             ZStack {
@@ -35,7 +30,7 @@ struct CircularProgressView: View {
             .rotationEffect(Angle(degrees: 120))
             Text("\(value)")
                 .rotationEffect(Angle(degrees: 0))
-                .font(.custom("Montserrat-SemiBold", size: 24))
+                .font(.graphValueLarge)
                 
         }
         .frame(width: UIScreen.main.bounds.width / 6)
@@ -45,5 +40,5 @@ struct CircularProgressView: View {
 }
 
 #Preview {
-    CircularProgressView(3, CGFloat(0.5))
+    CircularProgressView(progress: CGFloat(0.5), value: 3)
 }

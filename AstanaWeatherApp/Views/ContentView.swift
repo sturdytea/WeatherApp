@@ -13,18 +13,19 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel = WeatherViewModel()
+    @ObservedObject var viewModel = WeatherViewModel() // TODO: Use DependancyInjection
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+                // MARK: - Current Weather
                 if let currentWeather = viewModel.currentWeatherRecord {
                     WeatherInfoContainer(weather: currentWeather)
                 } else {
-                    Text("Loading weather data...")
+                    Text(LocalizedContent.loading)
                 }
                 // MARK: - Temperature
-                Text("Temperature")
+                Text(LocalizedContent.temperatureTitle)
                     .padding(.top, 16)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -35,19 +36,18 @@ struct ContentView: View {
                     }
                 }
                 // MARK: - Detail Information
-                Text("Detail Information")
+                Text(LocalizedContent.detailsTitle)
                     .padding(.top, 16)
                 if let airPolution = viewModel.airPolutionDataRecord {
-                    AirPolutionContainer(airPolution)
+                    AirPolutionContainer(data: airPolution)
                 }
                 
                 if let currentWeather = viewModel.currentWeatherRecord {
                     WeatherDetailsContainer(weather: currentWeather)
                 }
-                
             }
             .padding()
-            .font(.custom("Montserrat-SemiBold", size: 16))
+            .font(.primaryTitle)
         }
     }
 }
