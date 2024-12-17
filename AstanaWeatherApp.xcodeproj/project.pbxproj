@@ -13,6 +13,9 @@
 		B80972182CD1F9760000AAE9 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80972172CD1F9760000AAE9 /* CircularProgressView.swift */; };
 		B809721A2CD21BAD0000AAE9 /* WeatherDetailsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80972192CD21BAD0000AAE9 /* WeatherDetailsContainer.swift */; };
 		B809721C2CD25A2F0000AAE9 /* DetailsGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809721B2CD25A2F0000AAE9 /* DetailsGridItem.swift */; };
+		B835964F2D11C1DE003C8FF3 /* BlinkViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835964E2D11C1DE003C8FF3 /* BlinkViewModifier.swift */; };
+		B83596512D11C25E003C8FF3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83596502D11C25E003C8FF3 /* View.swift */; };
+		B83596552D11C2D8003C8FF3 /* SkeletonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83596542D11C2D8003C8FF3 /* SkeletonCellView.swift */; };
 		B86FC8FE2C6E316E0064CFBA /* AstanaWeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC8FD2C6E316E0064CFBA /* AstanaWeatherAppApp.swift */; };
 		B86FC9002C6E316E0064CFBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC8FF2C6E316E0064CFBA /* ContentView.swift */; };
 		B86FC9022C6E31700064CFBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86FC9012C6E31700064CFBA /* Images.xcassets */; };
@@ -51,6 +54,9 @@
 		B80972172CD1F9760000AAE9 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		B80972192CD21BAD0000AAE9 /* WeatherDetailsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsContainer.swift; sourceTree = "<group>"; };
 		B809721B2CD25A2F0000AAE9 /* DetailsGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsGridItem.swift; sourceTree = "<group>"; };
+		B835964E2D11C1DE003C8FF3 /* BlinkViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkViewModifier.swift; sourceTree = "<group>"; };
+		B83596502D11C25E003C8FF3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		B83596542D11C2D8003C8FF3 /* SkeletonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCellView.swift; sourceTree = "<group>"; };
 		B86FC8FA2C6E316E0064CFBA /* AstanaWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstanaWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86FC8FD2C6E316E0064CFBA /* AstanaWeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstanaWeatherAppApp.swift; sourceTree = "<group>"; };
 		B86FC8FF2C6E316E0064CFBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B835964D2D11C1CD003C8FF3 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				B835964E2D11C1DE003C8FF3 /* BlinkViewModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		B86FC8F12C6E316E0064CFBA = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +153,7 @@
 		B86FC90B2C6E31800064CFBA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B835964D2D11C1CD003C8FF3 /* Modifiers */,
 				B8B4B8712CEA7CE800896EF6 /* Extensions */,
 				B8BA243C2CD0208B0063BD41 /* Fonts */,
 				B894E4C12C7733CB0022DE98 /* Views */,
@@ -186,6 +201,7 @@
 				B80972172CD1F9760000AAE9 /* CircularProgressView.swift */,
 				B80972192CD21BAD0000AAE9 /* WeatherDetailsContainer.swift */,
 				B809721B2CD25A2F0000AAE9 /* DetailsGridItem.swift */,
+				B83596542D11C2D8003C8FF3 /* SkeletonCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				B8B4B8722CEA7D4E00896EF6 /* Font.swift */,
+				B83596502D11C25E003C8FF3 /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,7 +366,10 @@
 				B8BA244A2CD034F60063BD41 /* HourWeatherItem.swift in Sources */,
 				B8CBB0742C8879B5003CE614 /* CurrentWeather.swift in Sources */,
 				B86FC9192C7481030064CFBA /* WeatherResponse.swift in Sources */,
+				B83596552D11C2D8003C8FF3 /* SkeletonCellView.swift in Sources */,
+				B83596512D11C25E003C8FF3 /* View.swift in Sources */,
 				B894E4CA2C7E63AF0022DE98 /* WeatherError.swift in Sources */,
+				B835964F2D11C1DE003C8FF3 /* BlinkViewModifier.swift in Sources */,
 				B8BA23E12CCFC7A90063BD41 /* WeekdayFilterItem.swift in Sources */,
 				B8BA244C2CD0C4070063BD41 /* HourlyResponseBody.swift in Sources */,
 				B897C8832CDB7D2E0012C006 /* LocationManager.swift in Sources */,

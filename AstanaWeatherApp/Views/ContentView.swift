@@ -12,8 +12,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @ObservedObject var viewModel = WeatherViewModel() // TODO: Use DependancyInjection
+    @EnvironmentObject var viewModel: WeatherViewModel
     
     var body: some View {
         NavigationView {
@@ -22,28 +21,43 @@ struct ContentView: View {
                 if let currentWeather = viewModel.currentWeatherRecord {
                     WeatherInfoContainer(weather: currentWeather)
                 } else {
-                    Text(LocalizedContent.loading)
+                    SkeletonCellView()
                 }
                 // MARK: - Temperature
-                Text(LocalizedContent.temperatureTitle)
-                    .padding(.top, 16)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(viewModel.hourlyWeatherRecords) { weatherRecord in
-                            HourWeatherItem(weather: weatherRecord)
+                if !viewModel.hourlyWeatherRecords.isEmpty {
+                    Text(LocalizedContent.temperatureTitle)
+                        .padding(.top, 16)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.hourlyWeatherRecords) { weatherRecord in
+                                HourWeatherItem(weather: weatherRecord)
+                            }
                         }
                     }
+                } else {
+                    SkeletonCellView(height: 16)
+                        .padding(.top, 16)
+                    SkeletonCellView(height: 60)
                 }
+                
                 // MARK: - Detail Information
-                Text(LocalizedContent.detailsTitle)
-                    .padding(.top, 16)
                 if let airPolution = viewModel.airPolutionDataRecord {
+                    Text(LocalizedContent.detailsTitle)
+                        .padding(.top, 16)
+                    
                     AirPolutionContainer(data: airPolution)
+                } else {
+                    SkeletonCellView(height: 16)
+                        .padding(.top, 16)
+                    
+                    SkeletonCellView(height: 90)
                 }
                 
                 if let currentWeather = viewModel.currentWeatherRecord {
                     WeatherDetailsContainer(weather: currentWeather)
+                } else {
+                    SkeletonCellView(height: 130)
                 }
             }
             .padding()

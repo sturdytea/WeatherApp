@@ -13,9 +13,11 @@ import SwiftUI
 
 @main
 struct AstanaWeatherAppApp: App {
+    let viewModel = WeatherViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewModel)
         }
     }
 }
