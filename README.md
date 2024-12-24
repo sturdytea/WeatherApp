@@ -1,6 +1,7 @@
 <div align="row">
   <img src="https://github.com/user-attachments/assets/348a4c1b-4b43-46bc-82ef-f4abd050892c" style="width: 10%">  
   <h1>Weather App 🌦️</h1>
+  <a href="https://wakatime.com/badge/user/5faee03b-28dd-4595-ad79-0725ff7ff9aa/project/6a84d70d-11ad-4021-a22c-36bdcf0864c6"><img src="https://wakatime.com/badge/user/5faee03b-28dd-4595-ad79-0725ff7ff9aa/project/6a84d70d-11ad-4021-a22c-36bdcf0864c6.svg" alt="wakatime"></a>
 </div>
 
 It's a simple and minimalist weather app that provides current weather information. The app uses the OpenWeatherMap API to fetch real-time and hourly forecast weather data, air quality index, and other useful details.  
