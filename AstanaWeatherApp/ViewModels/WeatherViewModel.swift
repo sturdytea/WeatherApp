@@ -68,6 +68,7 @@ final class WeatherViewModel: ObservableObject {
                 }
             }, receiveValue: { value in
                 self.currentWeatherRecord = value
+                self.saveCurrentWeatherToAppGroup(weather: value)
             })
             .store(in: &subscriptions)
     }
@@ -110,5 +111,17 @@ final class WeatherViewModel: ObservableObject {
                 self.airPolutionDataRecord = recievedValue[0]
             })
             .store(in: &subscriptions)
+    }
+    
+    private func saveCurrentWeatherToAppGroup(weather: CurrentWeather) {
+        if let userDefaults = UserDefaults(suiteName: "group.com.sturdytea.AstanaWeatherApp") {
+            userDefaults.set(weather.temp, forKey: "currentTemp")
+            userDefaults.set(weather.cityName, forKey: "city")
+            userDefaults.set(weather.icon, forKey: "icon")
+            userDefaults.set(weather.maxTemp, forKey: "maxTemp")
+            userDefaults.set(weather.minTemp, forKey: "minTemp")
+            userDefaults.set(weather.wind, forKey: "wind")
+            userDefaults.set(weather.feelsLike, forKey: "feelsLike")
+        }
     }
 }

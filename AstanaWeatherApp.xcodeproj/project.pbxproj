@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		B835964F2D11C1DE003C8FF3 /* BlinkViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B835964E2D11C1DE003C8FF3 /* BlinkViewModifier.swift */; };
 		B83596512D11C25E003C8FF3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83596502D11C25E003C8FF3 /* View.swift */; };
 		B83596552D11C2D8003C8FF3 /* SkeletonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83596542D11C2D8003C8FF3 /* SkeletonCellView.swift */; };
+		B83596932D12BB2E003C8FF3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83596922D12BB2E003C8FF3 /* WidgetKit.framework */; };
+		B83596952D12BB2E003C8FF3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83596942D12BB2E003C8FF3 /* SwiftUI.framework */; };
+		B83596A02D12BB30003C8FF3 /* StaticWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B83596902D12BB2E003C8FF3 /* StaticWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B86FC8FE2C6E316E0064CFBA /* AstanaWeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC8FD2C6E316E0064CFBA /* AstanaWeatherAppApp.swift */; };
 		B86FC9002C6E316E0064CFBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FC8FF2C6E316E0064CFBA /* ContentView.swift */; };
 		B86FC9022C6E31700064CFBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86FC9012C6E31700064CFBA /* Images.xcassets */; };
@@ -47,7 +50,33 @@
 		B8CBB0822C90DAE6003CE614 /* WeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBB0812C90DAE6003CE614 /* WeatherProtocol.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B835969E2D12BB30003C8FF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B86FC8F22C6E316E0064CFBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B835968F2D12BB2E003C8FF3;
+			remoteInfo = StaticWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B83596A12D12BB30003C8FF3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B83596A02D12BB30003C8FF3 /* StaticWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B8036E3E2D1AE3CC00BEB27A /* AstanaWeatherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AstanaWeatherApp.entitlements; sourceTree = "<group>"; };
+		B8036E3F2D1AE3F500BEB27A /* StaticWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StaticWidgetExtension.entitlements; sourceTree = "<group>"; };
 		B809720F2CD103B80000AAE9 /* AirPolutionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPolutionContainer.swift; sourceTree = "<group>"; };
 		B80972112CD109EE0000AAE9 /* AirPolutionResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPolutionResponseBody.swift; sourceTree = "<group>"; };
 		B80972132CD10C750000AAE9 /* AirPolutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPolutionData.swift; sourceTree = "<group>"; };
@@ -57,6 +86,9 @@
 		B835964E2D11C1DE003C8FF3 /* BlinkViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkViewModifier.swift; sourceTree = "<group>"; };
 		B83596502D11C25E003C8FF3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		B83596542D11C2D8003C8FF3 /* SkeletonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCellView.swift; sourceTree = "<group>"; };
+		B83596902D12BB2E003C8FF3 /* StaticWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StaticWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B83596922D12BB2E003C8FF3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B83596942D12BB2E003C8FF3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		B86FC8FA2C6E316E0064CFBA /* AstanaWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstanaWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86FC8FD2C6E316E0064CFBA /* AstanaWeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstanaWeatherAppApp.swift; sourceTree = "<group>"; };
 		B86FC8FF2C6E316E0064CFBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,7 +122,30 @@
 		B8CBB0812C90DAE6003CE614 /* WeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B83596A42D12BB30003C8FF3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B835968F2D12BB2E003C8FF3 /* StaticWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B83596962D12BB2E003C8FF3 /* StaticWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (B83596A42D12BB30003C8FF3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StaticWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		B835968D2D12BB2E003C8FF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B83596952D12BB2E003C8FF3 /* SwiftUI.framework in Frameworks */,
+				B83596932D12BB2E003C8FF3 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B86FC8F72C6E316E0064CFBA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,10 +164,22 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		B83596912D12BB2E003C8FF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B83596922D12BB2E003C8FF3 /* WidgetKit.framework */,
+				B83596942D12BB2E003C8FF3 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B86FC8F12C6E316E0064CFBA = {
 			isa = PBXGroup;
 			children = (
+				B8036E3F2D1AE3F500BEB27A /* StaticWidgetExtension.entitlements */,
 				B86FC8FC2C6E316E0064CFBA /* AstanaWeatherApp */,
+				B83596962D12BB2E003C8FF3 /* StaticWidget */,
+				B83596912D12BB2E003C8FF3 /* Frameworks */,
 				B86FC8FB2C6E316E0064CFBA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B86FC8FA2C6E316E0064CFBA /* AstanaWeatherApp.app */,
+				B83596902D12BB2E003C8FF3 /* StaticWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +196,7 @@
 		B86FC8FC2C6E316E0064CFBA /* AstanaWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				B8036E3E2D1AE3CC00BEB27A /* AstanaWeatherApp.entitlements */,
 				B8BA24482CD021220063BD41 /* Info.plist */,
 				B8B4B86E2CEA735300896EF6 /* Assets */,
 				B8B4B86D2CEA732500896EF6 /* Services */,
@@ -270,6 +339,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B835968F2D12BB2E003C8FF3 /* StaticWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B83596A52D12BB30003C8FF3 /* Build configuration list for PBXNativeTarget "StaticWidgetExtension" */;
+			buildPhases = (
+				B835968C2D12BB2E003C8FF3 /* Sources */,
+				B835968D2D12BB2E003C8FF3 /* Frameworks */,
+				B835968E2D12BB2E003C8FF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B83596962D12BB2E003C8FF3 /* StaticWidget */,
+			);
+			name = StaticWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = StaticWidgetExtension;
+			productReference = B83596902D12BB2E003C8FF3 /* StaticWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B86FC8F92C6E316E0064CFBA /* AstanaWeatherApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B86FC9082C6E31700064CFBA /* Build configuration list for PBXNativeTarget "AstanaWeatherApp" */;
@@ -277,10 +368,12 @@
 				B86FC8F62C6E316E0064CFBA /* Sources */,
 				B86FC8F72C6E316E0064CFBA /* Frameworks */,
 				B86FC8F82C6E316E0064CFBA /* Resources */,
+				B83596A12D12BB30003C8FF3 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B835969F2D12BB30003C8FF3 /* PBXTargetDependency */,
 			);
 			name = AstanaWeatherApp;
 			productName = AstanaWeatherApp;
@@ -294,9 +387,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					B835968F2D12BB2E003C8FF3 = {
+						CreatedOnToolsVersion = 16.1;
+					};
 					B86FC8F92C6E316E0064CFBA = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -316,11 +412,19 @@
 			projectRoot = "";
 			targets = (
 				B86FC8F92C6E316E0064CFBA /* AstanaWeatherApp */,
+				B835968F2D12BB2E003C8FF3 /* StaticWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B835968E2D12BB2E003C8FF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B86FC8F82C6E316E0064CFBA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +443,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B835968C2D12BB2E003C8FF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B86FC8F62C6E316E0064CFBA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,7 +489,73 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B835969F2D12BB30003C8FF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B835968F2D12BB2E003C8FF3 /* StaticWidgetExtension */;
+			targetProxy = B835969E2D12BB30003C8FF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		B83596A22D12BB30003C8FF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StaticWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z8VL4FLQJ7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StaticWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StaticWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sturdytea.AstanaWeatherApp.StaticWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B83596A32D12BB30003C8FF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StaticWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z8VL4FLQJ7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StaticWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StaticWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sturdytea.AstanaWeatherApp.StaticWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B86FC9062C6E31700064CFBA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -505,6 +682,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AstanaWeatherApp/AstanaWeatherApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AstanaWeatherApp/Preview Content\"";
@@ -538,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AstanaWeatherApp/AstanaWeatherApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AstanaWeatherApp/Preview Content\"";
@@ -569,6 +748,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B83596A52D12BB30003C8FF3 /* Build configuration list for PBXNativeTarget "StaticWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B83596A22D12BB30003C8FF3 /* Debug */,
+				B83596A32D12BB30003C8FF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B86FC8F52C6E316E0064CFBA /* Build configuration list for PBXProject "AstanaWeatherApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
