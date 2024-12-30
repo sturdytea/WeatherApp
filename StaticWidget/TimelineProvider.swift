@@ -33,8 +33,8 @@ struct Provider: TimelineProvider {
             let wind = userDefaults.integer(forKey: "wind")
             let feelsLike = userDefaults.integer(forKey: "feelsLike")
             
-            // Generate a timeline consisting of six entries an hour apart, starting from the current date
-            for hourOffset in 0 ..< 6 {
+            // Generate a timeline consisting of three entries an hour apart, starting from the current date
+            for hourOffset in 0 ..< 3 {
                 let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
                 let entry = WeatherEntry(date: entryDate, city: city, temp: temp, icon: icon, maxTemp: maxTemp, minTemp: minTemp, wind: wind, feelsLike: feelsLike)
                 entries.append(entry)
